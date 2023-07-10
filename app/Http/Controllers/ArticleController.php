@@ -12,10 +12,10 @@ class ArticleController extends Controller
 
     public function index(Request $request)
     {
-        $perPage = $request->query('per_page', 10); // Number of items per page (default: 10)
+        $perPage = $request->query('per_page', 10);
 
         Paginator::currentPageResolver(function () use ($request) {
-            return $request->query('page', 1); // Current page from the query parameter (default: 1)
+            return $request->query('page', 1); 
         });
 
         $articles = Article::paginate($perPage);
